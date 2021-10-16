@@ -10,12 +10,12 @@ const {eliminarJugadores}=require('../controllers/controlador.js')
 
 rutas.get('/avanzada/v1/jugadores',buscarJugadores)
 
-rutas.get('/avanzada/v1/jugadores/id',buscarJugador)
+rutas.get('/avanzada/v1/jugadores/:id',buscarJugador)
  
 rutas.post('/avanzada/v1/jugadores',registrarJugador)
 
-rutas.put('/avanzada/v1/jugadores/id',editarJugadores)
+rutas.put('/avanzada/v1/jugadores/:id',editarJugadores)
 
-rutas.delete('/avanzada/v1/jugadores/id',eliminarJugadores)
+rutas.delete('/avanzada/v1/jugadores/:id',eliminarJugadores)
 
 module.exports=rutas

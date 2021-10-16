@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+
 async function conectarBD (){
     try{
         await mongoose.connect(process.env.BASEDATOS);

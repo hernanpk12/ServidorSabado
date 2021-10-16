@@ -1,15 +1,29 @@
 const {request, response} = require('express')
 
+// importar servicio
+const {insertarJugador} = require('../services/servicios.js')
 
-function registrarJugador(peticion=request,respuesta=response){
 
-    respuesta.json(
-        {
-            estado:true,
-            mensaje:"estoy registrando un jugador"
+async function registrarJugador(peticion=request,respuesta=response){
+
+    let datosCliente=peticion.body;
+
+    try{
+     await insertarJugador(datosCliente)
+     respuesta.status(200).json({
+         estado:true,
+         mensaje:"exito al registrar el jugador"
+     }
+     )
+    }
+    catch(error){
+        respuesta.status(400).json({
+            estado:false,
+            mensaje:"upss...."+error
         }
-    )
+        )
 
+    }
 
 }
 
